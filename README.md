@@ -57,4 +57,4 @@ y
 #> [ CPUFloatType{1} ]
 ```
 
-<img src="/Users/dfalbel/Documents/madgrad/man/figures/plot.gif" width="100%" style="display: block; margin: auto;" />
+<img src="man/figures/plot.gif" width="100%" style="display: block; margin: auto;" />

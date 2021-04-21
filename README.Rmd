@@ -107,6 +107,6 @@ fname <- gifski::save_gif({
   print(p)
   
 }, gif_file = "man/figures/plot.gif", delay = 0.03, loop = FALSE)
-knitr::include_graphics(fname)
+knitr::include_graphics("man/figures/plot.gif")
 ```
 

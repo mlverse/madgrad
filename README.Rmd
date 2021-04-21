@@ -37,42 +37,76 @@ This is a small example showing how to use `madgrad` with torch to minimize a fu
 ```{r example}
 library(madgrad)
 library(torch)
-library(ggplot2)
+
 torch_manual_seed(1)
 
 f <- function(x, y) {
   log((1.5 - x + x*y)^2 + (2.25 - x - x*(y^2))^2 + (2.625 - x + x*(y^3))^2)
 }
 
-grid <- expand.grid(x = seq(-10, 10, by = 0.1), y = seq(-10, 10, by = 0.1))
-grid$z <- f(grid$x, grid$y)
-g <- ggplot(grid) +
-  geom_contour_filled(aes(x = x, y = y, z = z))
-```
-
-
-```{r plot, out.width="100%", fig.align="center", dpi=300}
 x <- torch_tensor(-5, requires_grad = TRUE)
 y <- torch_tensor(-2, requires_grad = TRUE)
 
 opt <- optim_madgrad(params = list(x, y), lr = 0.1)
-values <- list(list(x$item(), y$item()))
+
 for (i in 1:100) {
   opt$zero_grad()
   z <- f(x, y)
   z$backward()
   opt$step()
-  values[[length(values) + 1]] <- list(x$item(), y$item())  
 }
-
-paths <- values %>% 
-  purrr::map_dfr(~tibble::tibble(x = .x[[1]], y = .x[[2]])) %>% 
-  dplyr::mutate(xend = dplyr::lead(x), yend = dplyr::lead(y))
-  
-g + 
-  geom_segment(data = paths, aes(x = x, y  = y, xend = xend, yend = yend), 
-               arrow = arrow(length = unit(0.02, "inches"))) +
-  geom_point(data = tail(paths, 1), aes(x = x, y= y), color = "red", size = 2) +
-  geom_point(data = head(paths, 1), aes(x = x, y= y), color = "purple", size = 2) +
-  theme(legend.position = "none")
+x
+y
 ```
+
+```{r plot, out.width="100%", fig.align="center", dpi=300, echo=FALSE, warning = FALSE, message=FALSE}
+library(ggplot2)
+grid <- expand.grid(x = seq(-10, 10, by = 0.5), y = seq(-10, 10, by = 0.5))
+grid$z <- f(grid$x, grid$y)
+g <- ggplot(grid) +
+  geom_contour_filled(aes(x = x, y = y, z = z))
+
+x <- torch_tensor(-5, requires_grad = TRUE)
+y <- torch_tensor(-2, requires_grad = TRUE)
+
+opt <- optim_madgrad(params = list(x, y), lr = 0.1)
+values <- list(list(x$item(), y$item()))
+
+fname <- gifski::save_gif({
+   paths <- values %>% 
+    purrr::map_dfr(~tibble::tibble(x = .x[[1]], y = .x[[2]])) %>% 
+    dplyr::mutate(xend = dplyr::lead(x), yend = dplyr::lead(y)) %>% 
+    dplyr::mutate(id = dplyr::row_number())
+  
+  for (i in 1:100) {
+    opt$zero_grad()
+    z <- f(x, y)
+    z$backward()
+    opt$step()
+    values[[length(values) + 1]] <- list(x$item(), y$item())  
+    
+    paths <- values %>% 
+      purrr::map_dfr(~tibble::tibble(x = .x[[1]], y = .x[[2]])) %>% 
+      dplyr::mutate(xend = dplyr::lead(x), yend = dplyr::lead(y)) %>% 
+      dplyr::mutate(id = dplyr::row_number())
+    
+    p <- g + 
+      geom_segment(data = paths, aes(x = x, y  = y, xend = xend, yend = yend), 
+                   arrow = arrow(length = unit(0.02, "inches"))) +
+      geom_point(data = head(paths, 1), aes(x = x, y= y), color = "purple", size = 2) +
+      theme(legend.position = "none")
+    print(p)
+  }
+  
+  p <- g +
+    geom_segment(data = paths, aes(x = x, y  = y, xend = xend, yend = yend), 
+                 arrow = arrow(length = unit(0.02, "inches"))) +
+    geom_point(data = head(paths, 1), aes(x = x, y= y), color = "purple", size = 2) +
+    geom_point(data = tail(paths, 1), aes(x = x, y= y), color = "red", size = 2) +
+    theme(legend.position = "none")
+  print(p)
+  
+}, gif_file = "man/figures/plot.gif", delay = 0.03, loop = FALSE)
+knitr::include_graphics(fname)
+```
+

@@ -22,8 +22,8 @@ devtools::install_github("mlverse/madgrad")
 
 ## Example
 
-This is a small exmaple showing how to use madgrad with torch to
-minimize a function, of course, madgrad is not the best algorithm for
+This is a small example showing how to use `madgrad` with torch to
+minimize a function, of course, `madgrad` is not the best algorithm for
 this task and should work better for neural network training.
 
 ``` r
@@ -62,11 +62,11 @@ paths <- values %>%
   
 g + 
   geom_segment(data = paths, aes(x = x, y  = y, xend = xend, yend = yend), 
-               arrow = arrow(length = unit(0.05, "inches"))) +
+               arrow = arrow(length = unit(0.02, "inches"))) +
   geom_point(data = tail(paths, 1), aes(x = x, y= y), color = "red", size = 2) +
   geom_point(data = head(paths, 1), aes(x = x, y= y), color = "purple", size = 2) +
   theme(legend.position = "none")
 #> Warning: Removed 1 rows containing missing values (geom_segment).
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-plot-1.png" width="100%" style="display: block; margin: auto;" />

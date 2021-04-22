@@ -11,7 +11,8 @@ status](https://www.r-pkg.org/badges/version/madgrad)](https://CRAN.R-project.or
 <!-- badges: end -->
 
 The Madgrad package is an R port of the original
-[madgrad](https://github.com/facebookresearch/madgrad). See the [Arxiv
+[madgrad](https://github.com/facebookresearch/madgrad) by Aaron Defazio
+and Samy Jelassi. See the [Arxiv
 paper](https://arxiv.org/abs/2101.11075) for details on the method.
 
 ## Installation

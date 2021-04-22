@@ -3,10 +3,11 @@ Title: Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Opti
 Version: 0.0.0.9000
 Authors@R: c(
     person("Daniel", "Falbel", email = "daniel@rstudio.com", role = c("aut", "cre", "cph")),
-    person(family = "RStudio", role = c("cph"))
+    person(family = "RStudio", role = c("cph")),
+    person(family = "MADGRAD original implementation authors.", role = c("cph"))
     )
-Description: A best-of-both-worlds optimizer with the generalization performance 
-  of SGD and at least as fast convergence as that of Adam, often faster. A drop-in 
+Description: A 'best-of-both-worlds' optimizer with the generalization performance 
+  of 'SGD' and at least as fast convergence as that of Adam, often faster. A drop-in 
   'optim_madgrad' implementation by Defazio et al (2020) <arxiv:2101.11075>.
 License: MIT + file LICENSE
 Encoding: UTF-8

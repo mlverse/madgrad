@@ -7,7 +7,7 @@ Authors@R: c(
     )
 Description: A best-of-both-worlds optimizer with the generalization performance 
   of SGD and at least as fast convergence as that of Adam, often faster. A drop-in 
-  'optim_madgrad' implementation by Defazio et al (2020) <arxiv:https://arxiv.org/abs/2101.11075>.
+  'optim_madgrad' implementation by Defazio et al (2020) <arxiv:2101.11075>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

@@ -34,6 +34,7 @@ On sparse problems both weight_decay and momentum should be set to 0.
 }
 \examples{
 if (torch::torch_is_installed()) {
+library(torch)
 x <- torch_randn(1, requires_grad = TRUE)
 opt <- optim_madgrad(x)
 for (i in 1:100) {

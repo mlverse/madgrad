@@ -1,6 +1,6 @@
 Package: madgrad
 Title: Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: c(
     person("Daniel", "Falbel", email = "daniel@rstudio.com", role = c("aut", "cre", "cph")),
     person(family = "RStudio", role = c("cph")),
@@ -15,10 +15,8 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
-    torch,
+    torch (>= 0.3.0),
     rlang
-Remotes:
-    mlverse/torch
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

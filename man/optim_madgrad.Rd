@@ -18,6 +18,9 @@ optim_madgrad(params, lr = 0.01, momentum = 0.9, weight_decay = 0, eps = 1e-06)
 
 \item{eps}{(float): Term added to the denominator outside of the root operation to improve numerical stability. (default: 1e-6).}
 }
+\value{
+An optimizer object implementing the \code{step} and \code{zero_grad} methods.
+}
 \description{
 \href{https://arxiv.org/abs/2101.11075}{MADGRAD} is a general purpose optimizer that
 can be used in place of SGD or Adam may converge faster and generalize better.
@@ -45,4 +48,5 @@ for (i in 1:100) {
 }
 all.equal(x$item(), 0, tolerance = 1e-9)
 }
+
 }

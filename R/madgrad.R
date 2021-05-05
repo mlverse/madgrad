@@ -1,5 +1,3 @@
-
-
 #' A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic
 #' Optimization.
 #'
@@ -34,6 +32,10 @@
 #' }
 #' all.equal(x$item(), 0, tolerance = 1e-9)
 #' }
+#'
+#' @returns
+#' An optimizer object implementing the `step` and `zero_grad` methods.
+#'
 #' @export
 optim_madgrad <- torch::optimizer(
   initialize = function(params, lr = 1e-2, momentum = 0.9, weight_decay = 0,

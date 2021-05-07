@@ -1,14 +1,16 @@
 Package: madgrad
-Title: Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization
+Title: 'MADGRAD' Method for Stochastic Optimization
 Version: 0.1.0
 Authors@R: c(
     person("Daniel", "Falbel", email = "daniel@rstudio.com", role = c("aut", "cre", "cph")),
     person(family = "RStudio", role = c("cph")),
     person(family = "MADGRAD original implementation authors.", role = c("cph"))
     )
-Description: A 'best-of-both-worlds' optimizer with the generalization performance 
-  of 'SGD' and at least as fast convergence as that of Adam, often faster. A drop-in 
-  'optim_madgrad' implementation by Defazio et al (2020) <arxiv:2101.11075>.
+Description: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic 
+  Optimization algorithm. MADGRAD is a 'best-of-both-worlds' optimizer with the 
+  generalization performance of stochastic gradient descent and at least as fast 
+  convergence as that of Adam, often faster. A drop-in optim_madgrad() implementation
+  is provided based on Defazio et al (2020) <arxiv:2101.11075>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

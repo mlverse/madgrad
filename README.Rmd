@@ -25,13 +25,20 @@ See the [Arxiv paper](https://arxiv.org/abs/2101.11075) for details on the metho
 
 ## Installation
 
-Madgrad is not yet on CRAN. The development version from [GitHub](https://github.com/)
+You can install madgrad from CRAN using:
+
+``` r
+install.packages("madgrad")
+```
+
+The development version from [GitHub](https://github.com/)
 can be installed with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("mlverse/madgrad")
 ```
+
 ## Example
 
 This is a small example showing how to use `madgrad` with torch to minimize a function, of course, `madgrad` is not the best algorithm for this task and should work better for neural network training.

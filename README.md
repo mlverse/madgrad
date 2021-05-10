@@ -17,8 +17,14 @@ paper](https://arxiv.org/abs/2101.11075) for details on the method.
 
 ## Installation
 
-Madgrad is not yet on CRAN. The development version from
-[GitHub](https://github.com/) can be installed with:
+You can install madgrad from CRAN using:
+
+``` r
+install.packages("madgrad")
+```
+
+The development version from [GitHub](https://github.com/) can be
+installed with:
 
 ``` r
 # install.packages("devtools")

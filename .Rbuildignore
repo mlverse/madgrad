@@ -5,3 +5,4 @@
 ^\.github$
 ^CRAN-RELEASE$
 ^\.git$
+^cran-comments\.md$

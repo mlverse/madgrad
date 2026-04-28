@@ -10,7 +10,7 @@ Description: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochas
   Optimization algorithm. MADGRAD is a 'best-of-both-worlds' optimizer with the 
   generalization performance of stochastic gradient descent and at least as fast 
   convergence as that of Adam, often faster. A drop-in optim_madgrad() implementation
-  is provided based on Defazio et al (2020) <arxiv:2101.11075>.
+  is provided based on Defazio et al (2020) <doi:10.48550/arXiv.2101.11075>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

@@ -8,6 +8,7 @@
 [![R-CMD-check](https://github.com/mlverse/madgrad/workflows/R-CMD-check/badge.svg)](https://github.com/mlverse/madgrad/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/madgrad)](https://CRAN.R-project.org/package=madgrad)
+[![Downloads](https://cranlogs.r-pkg.org/badges/madgrad)](https://CRAN.R-project.org/package=madgrad)
 <!-- badges: end -->
 
 The Madgrad package is an R port of the original

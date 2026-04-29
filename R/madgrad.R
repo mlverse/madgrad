@@ -36,6 +36,8 @@
 #' @returns
 #' An optimizer object implementing the `step` and `zero_grad` methods.
 #'
+#' @importFrom torch optimizer torch_zeros_like torch_is_installed
+#' @importFrom rlang abort
 #' @export
 optim_madgrad <- torch::optimizer(
   initialize = function(params, lr = 1e-2, momentum = 0.9, weight_decay = 0,
